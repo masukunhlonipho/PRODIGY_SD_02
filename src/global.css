@@ -1,99 +1,43 @@
 /* global.css */
-body {
+
+  
+  body {
     font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    color: #333;
+  }
+  
+  body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrolling during animation */
+  }
+
+  /* Typography */
+  h1, h2, h3 {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
   }
   
   h2 {
     font-size: 2em;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .button {
-    background: linear-gradient(45deg, #4caf50, #66bb6a);
-    color: white;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-  
-  .button:hover {
-    background: linear-gradient(45deg, #45a049, #5ba55d);
-    transform: scale(1.05);
-  }
-  
-  /* Add more global styles here */
-  :root {
-    --primary-color: #4caf50;
-    --secondary-color: #66bb6a;
-    --font-family: 'Arial', sans-serif;
-  }
-  
-  body {
-    font-family: var(--font-family);
-  }
-  
-  .button {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  }
-  .player-status {
-    text-align: center;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   h3 {
     font-size: 1.5em;
-    color: #333;
     margin-bottom: 10px;
   }
   
-  p {
-    font-size: 1.2em;
-    color: #666;
-  }
-  .player-setup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #f7f7f7;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .input-container {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  label {
-    font-size: 1.2em;
-    color: #444;
-  }
-  
+  /* Input Fields and Labels */
   input {
-    padding: 10px;
+    padding: 12px;
     font-size: 1.2em;
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -103,76 +47,97 @@ body {
   }
   
   input:focus {
-    border-color: #4caf50;
+    border-color: var(--primary-color);
     outline: none;
   }
   
-  .start-btn {
-    margin-top: 20px;
-    background-color: #4caf50;
+  label {
+    font-size: 1.2em;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Button Styles */
+  button {
+    /* background-color: var(--primary-color); */
+    background-color: green;
     color: white;
-    font-size: 1.5em;
-    padding: 10px 20px;
+    font-size: 1.2em;
+    padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
   }
   
-  .start-btn:hover {
-    background-color: #45a049;
+  button:hover {
+    background-color: greenyellow;
+    transform: scale(1.05);
   }
   
-  .start-btn:disabled {
+  button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }
-  .gameplay {
+  
+  /* Layout Utilities */
+  .center {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background: #fefefe;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gap-20 {
+    gap: 20px;
+  }
+  
+  .gap-15 {
+    gap: 15px;
+  }
+  
+  /* Player Status */
+  .player-status {
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* width: 100%; */
+    /* max-width: 400px; */
+    margin-bottom: 20px;
+  }
+  
+  .player-status h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .player-status p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  /* Game Area */
+  .gameplay {
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   }
   
   .game-area {
     margin-top: 20px;
-    text-align: center;
-  }
-  
-  input {
-    padding: 10px;
-    font-size: 1.2em;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    width: 200px;
-    margin: 15px 0;
-    transition: border-color 0.3s ease;
-  }
-  
-  input:focus {
-    border-color: #4caf50;
-    outline: none;
-  }
-  
-  .submit-btn {
-    background-color: #4caf50;
-    color: white;
-    font-size: 1.2em;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 15px;
-  }
-  
-  .submit-btn:hover {
-    background-color: #45a049;
   }
   
   .feedback {
@@ -182,7 +147,6 @@ body {
   }
   
   .restart-btn {
-    margin-top: 20px;
     background-color: #ff6347;
     color: white;
     font-size: 1.2em;
@@ -191,8 +155,102 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
   }
   
   .restart-btn:hover {
     background-color: #e55340;
-  }      
+  }
+  
+  /* Player Setup Page */
+  .player-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 100vh; */
+    padding: 30px;
+    border-radius: 15px;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  .start-btn {
+    margin-top: 20px;
+    background-color: green;
+    color: white;
+    font-size: 1.5em;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background-color: greenyellow;
+  }
+  
+  /* General Button for Submissions */
+  .submit-btn {
+    background-color:green;
+    color: white;
+    font-size: 1.2em;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
+  
+  .submit-btn:hover {
+    background-color: greenyellow;
+  }
+  
+  /* Animation for Feedback */
+  /* @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  } */
+  /* Add to your global CSS or a specific CSS file */
+/* Add to your global CSS or a specific CSS file */
+/* Falling animation */
+@keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0); /* Start from above the screen */
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg); /* Move to the bottom of the screen */
+    }
+  }
+  
+  /* Rotation animation */
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg); /* Initial rotation */
+    }
+    100% {
+      transform: rotate(360deg); /* Full rotation */
+    }
+  }
+  
+  /* Styling for individual confetti pieces */
+  .confetti {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall 5s ease-out infinite, rotate 5s linear infinite;
+  }

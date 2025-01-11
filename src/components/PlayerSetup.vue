@@ -1,5 +1,5 @@
 <template>
-  <div class="player-setup">
+  <div class="player-setup center flex-column gap-20">
     <h2>Welcome to the Guessing Game!</h2>
     <div class="input-container">
       <label for="playerName">Enter Your Name:</label>
@@ -37,5 +37,17 @@ export default {
 };
 </script>
 
-<!-- <style scoped>
-</style> -->
+<style scoped>
+.player-setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+</style>

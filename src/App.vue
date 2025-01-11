@@ -1,5 +1,5 @@
 <template>
-  <div class="background-wrapper">
+  <div class="background-wrapper center">
     <div v-if="!gameStarted">
       <PlayerSetup @start-game="startGame" />
     </div>
@@ -12,6 +12,7 @@
 <script>
 import PlayerSetup from "./components/PlayerSetup.vue";
 import GamePlay from "./components/GamePlay.vue";
+
 
 export default {
   data() {
@@ -37,5 +38,11 @@ export default {
 };
 </script>
 
-<!-- <style>
-</style> -->
+<style scoped>
+.background-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+</style>
