@@ -37,7 +37,7 @@ class Celebration {
     }
   
     start() {
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 100; i++) {
         this.createPaper();
       }
     }
