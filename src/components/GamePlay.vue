@@ -26,7 +26,7 @@
 
 <script>
 import PlayerStatus from "./PlayerStatus.vue"; // Import the component
-import createCelebrationEffect from './Celebration';
+import Celebration from './Celebration';
 
 export default {
   props: {
@@ -54,14 +54,19 @@ export default {
         this.feedback = `Congratulations, ${this.player.name}! You guessed it right after ${this.player.attempts + 1} attempts.`;
         this.gameOver = true;
         // Trigger celebration effect
-        createCelebrationEffect();
-      }
+        if (!this.celebration) {
+          this.celebration = new Celebration();
+        }
+        this.celebration.start();      }
       this.player.attempts = (this.player.attempts || 0) + 1;
     },
     restartGame() {
       this.$emit("restart");
+      if (this.celebration) {
+        this.celebration.stop();
+      }
     },
-  },
+    },
 };
 </script>
 

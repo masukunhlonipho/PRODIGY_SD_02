@@ -1,42 +1,67 @@
-// Celebration effect: falling colored papers
-export default function createCelebrationEffect() {
-    const colors = ['#ff5733', '#ffeb3b', '#33b5ff', '#ff99cc', '#4caf50', '#ff5722']; // Celebration colors
-    const numberOfPapers = 30; // Number of falling papers
-    const animationDuration = '4s'; // Duration of the animation
-  
-    // Create falling paper elements
-    for (let i = 0; i < numberOfPapers; i++) {
-      const paper = document.createElement('div');
-      paper.style.position = 'absolute';
-      paper.style.top = `-10px`; // Start from just above the screen
-      paper.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-      paper.style.width = `${Math.random() * 10 + 10}px`; // Random width of papers
-      paper.style.height = `${Math.random() * 10 + 10}px`; // Random height of papers
-      paper.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      paper.style.opacity = 0.8 + Math.random() * 0.2; // Random opacity
-      paper.style.borderRadius = '50%';
-      paper.style.animation = `fall ${animationDuration} linear infinite`;
-  
-      // Append paper to the body
-      document.body.appendChild(paper);
-  
-      // Remove paper after animation to clean up the DOM
-      setTimeout(() => {
-        paper.remove();
-      }, parseFloat(animationDuration) * 1000); // Time in milliseconds
+// Celebration.js
+
+class Celebration {
+    constructor() {
+      this.container = document.createElement('div');
+      this.container.style.position = 'fixed';
+      this.container.style.top = '0';
+      this.container.style.left = '0';
+      this.container.style.width = '100%';
+      this.container.style.height = '100%';
+      this.container.style.zIndex = '9999';
+      this.container.style.pointerEvents = 'none';
+      document.body.appendChild(this.container);
     }
   
-    // Define the keyframes for the animation
-    const styleSheet = document.styleSheets[0];
-    styleSheet.insertRule(`
-      @keyframes fall {
-        0% {
-          transform: translateY(0) rotate(0deg);
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-        }
+    createPaper() {
+      const paper = document.createElement('div');
+      const size = Math.random() * 15 + 5;
+      paper.style.width = `${size}px`;
+      paper.style.height = `${size}px`;
+      paper.style.position = 'absolute';
+      paper.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 50%)`;
+      paper.style.opacity = Math.random() * 0.5 + 0.3;
+      paper.style.borderRadius = `${Math.random() * 50}%`;
+      paper.style.transform = `rotate(${Math.random() * 360}deg)`;
+      paper.style.left = `${Math.random() * 100}%`;
+  
+      const duration = Math.random() * 5 + 3;
+      const delay = Math.random() * 2;
+      paper.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+      
+      this.container.appendChild(paper);
+  
+      setTimeout(() => {
+        paper.remove();
+      }, (duration + delay) * 1000);
+    }
+  
+    start() {
+      for (let i = 0; i < 20; i++) {
+        this.createPaper();
       }
-    `, styleSheet.cssRules.length);
+    }
+  
+    stop() {
+      while (this.container.firstChild) {
+        this.container.removeChild(this.container.firstChild);
+      }
+    }
   }
   
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  export default Celebration;
