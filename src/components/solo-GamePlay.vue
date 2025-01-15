@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import PlayerStatus from "./PlayerStatus.vue"; // Import the component
-import Celebration from './Celebration';
+import PlayerStatus from "./solo-PlayerStatus.vue"; // Import the component
+import Celebration from './Celebration1'; // Import the Celebration class
 
 export default {
   props: {
@@ -42,6 +42,7 @@ export default {
       targetNumber: Math.floor(Math.random() * 100) + 1,
       feedback: "",
       gameOver: false,
+      celebration: null, // Celebration instance
     };
   },
   methods: {
@@ -53,20 +54,32 @@ export default {
       } else {
         this.feedback = `Congratulations, ${this.player.name}! You guessed it right after ${this.player.attempts + 1} attempts.`;
         this.gameOver = true;
+        
         // Trigger celebration effect
         if (!this.celebration) {
-          this.celebration = new Celebration();
+          this.celebration = new Celebration(); // Initialize the celebration
         }
-        this.celebration.start();      }
+        this.celebration.start(); // Start the celebration
+      }
+
       this.player.attempts = (this.player.attempts || 0) + 1;
     },
+
     restartGame() {
       this.$emit("restart");
+
+      // Reset game state
+      this.playerGuess = null;
+      this.targetNumber = Math.floor(Math.random() * 100) + 1;
+      this.feedback = "";
+      this.gameOver = false;
+
+      // Stop celebration effect
       if (this.celebration) {
         this.celebration.stop();
       }
     },
-    },
+  },
 };
 </script>
 
@@ -75,9 +88,11 @@ export default {
   padding: 30px;
   border-radius: 15px;
 }
+
 .game-area {
   margin-top: 20px;
 }
+
 .feedback {
   margin-top: 20px;
   font-size: 1.5em;

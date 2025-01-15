@@ -1,6 +1,5 @@
 /* global.css */
 
-  
   body {
     font-family: 'Arial', sans-serif;
     background: #f7f7f7;
@@ -11,7 +10,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrolling during animation */
+    overflow: hidden;
   }
 
   /* Typography */
@@ -73,7 +72,7 @@
   }
   
   button:hover {
-    background-color: greenyellow;
+    background-color: #e55340;
     transform: scale(1.05);
   }
   
@@ -91,8 +90,8 @@
   }
   
   .container {
-    max-width: 800px;
-    margin: 0 auto;
+    /* max-width: 800px; */
+    /* margin: 0 auto; */
     padding: 20px;
   }
   
@@ -115,8 +114,6 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* width: 100%; */
-    /* max-width: 400px; */
     margin-bottom: 20px;
   }
   
@@ -168,7 +165,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* min-height: 100vh; */
     padding: 30px;
     border-radius: 15px;
   }
@@ -179,7 +175,7 @@
   
   .start-btn {
     margin-top: 20px;
-    background-color: green;
+    background-color: darkgreen;
     color: white;
     font-size: 1.5em;
     padding: 12px 20px;
@@ -190,7 +186,7 @@
   }
   
   .start-btn:hover {
-    background-color: greenyellow;
+    background-color: #e55340;
   }
   
   /* General Button for Submissions */
@@ -207,45 +203,30 @@
   }
   
   .submit-btn:hover {
-    background-color: greenyellow;
+    background-color: #e55340;
   }
   
-  /* Animation for Feedback */
-  /* @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  } */
-  /* Add to your global CSS or a specific CSS file */
-/* Add to your global CSS or a specific CSS file */
-/* Falling animation */
-@keyframes fall {
-    0% {
-      transform: translateY(-100px) rotate(0); /* Start from above the screen */
-    }
-    100% {
-      transform: translateY(100vh) rotate(360deg); /* Move to the bottom of the screen */
-    }
-  }
+/* @keyframes fall { */
+    /* 0% { */
+      /* transform: translateY(-100px) rotate(0); Start from above the screen */
+    /* } */
+    /* 100% { */
+      /* transform: translateY(100vh) rotate(360deg); Move to the bottom of the screen */
+    /* } */
+  /* } */
   
   /* Rotation animation */
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg); /* Initial rotation */
-    }
-    100% {
-      transform: rotate(360deg); /* Full rotation */
-    }
-  }
+  /* @keyframes rotate { */
+    /* 0% { */
+      /* transform: rotate(0deg); Initial rotation */
+    /* } */
+    /* 100% { */
+      /* transform: rotate(360deg); Full rotation */
+    /* } */
+  /* } */
   
   /* Styling for individual confetti pieces */
-  .confetti {
+  /* .confetti {
     position: absolute;
     width: 15px;
     height: 15px;
@@ -253,4 +234,4 @@
     opacity: 0.8;
     pointer-events: none;
     animation: fall 5s ease-out infinite, rotate 5s linear infinite;
-  }
+  } */
