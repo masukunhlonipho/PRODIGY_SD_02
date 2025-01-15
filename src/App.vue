@@ -68,5 +68,6 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: #f7f7f7;
+  min-height: 100vh;
 }
 </style>
